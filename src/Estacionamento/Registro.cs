@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Estacionamento.Pessoa;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,13 +7,16 @@ namespace Estacionamento
 {
     public class Registro
     {
-        public Registro(Cliente cliente, Veiculo veiculo, DateTime data)
+        public Registro(Cliente cliente, DateTime data)
         {
             this.cliente = cliente;
-            this.veiculo = veiculo;
+            this.veiculo = cliente.Veiculo;
             DataInicio = data;
+            QuantidadeDeRegistros++;
+            Id = QuantidadeDeRegistros;
         }
-
+        private static int QuantidadeDeRegistros = 0;
+        public int Id;
         public Cliente cliente;
         public Veiculo veiculo;
         public readonly DateTime DataInicio;
@@ -26,6 +30,19 @@ namespace Estacionamento
             }
         }
 
+        public override bool Equals(object obj)
+        {
+            var registro = obj as Registro;
+            if(registro == null)
+            {
+                return false;
+            }
+            return this.Id == registro.Id;
+        }
+        public override string ToString()
+        {
+            return $"{Id},{cliente.CPF},{cliente.Nome},{DataInicio},{veiculo.Placa},{veiculo.Modelo},{veiculo.Cor}";
+        }
 
 
     }

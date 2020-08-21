@@ -6,7 +6,7 @@ namespace Estacionamento
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("\n\tNovo Estacionamento banco!");
+
         }
     }
 }
