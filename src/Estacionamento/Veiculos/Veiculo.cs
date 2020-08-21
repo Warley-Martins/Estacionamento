@@ -4,6 +4,12 @@ namespace Estacionamento
 {
     public class Veiculo
     {
+        public Veiculo(string placa, string modelo, string cor)
+        {
+            this.Placa = placa;
+            this.Modelo = modelo;
+            this.Cor = cor;
+        }
         public string Modelo { get; set; }
         public string Placa { get;}
         public string Cor { get; set; }

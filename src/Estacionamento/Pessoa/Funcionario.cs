@@ -11,11 +11,11 @@ namespace Estacionamento.Pessoa
         {
 
         }
-        public void CadastrarRegistro(Registro registro, Cliente cliente)
+        public void CadastrarRegistro(Cliente cliente ,bool clienteNovo)
         { 
             var data = DateTime.Now;
-            var Reg = new Registro(cliente, data);
-            Estacionamento.Adicionar(registro);
+            var registro = new Registro(cliente, data);
+            Estacionamento.Adicionar(registro, clienteNovo);
         }
 
         public double MostrarPreco(Cliente cliente, DateTime data)
@@ -31,6 +31,12 @@ namespace Estacionamento.Pessoa
             }
             return;
         }
+
+        public Cliente LocalizarCliente(string cpf)
+        {
+            return Estacionamento.LocalizarCliente(cpf);
+        }
+
         public override bool Equals(object obj)
         {
             var funcionario = obj as Funcionario;

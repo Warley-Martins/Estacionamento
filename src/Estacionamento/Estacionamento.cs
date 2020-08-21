@@ -9,14 +9,19 @@ namespace Estacionamento
     public static class Estacionamento
     {
         private static List<Registro> Registros = new List<Registro>();
-        
+        private static List<Cliente> clientes = new List<Cliente>();
+
         private static bool Logar()
         {
             return true;
         }
 
-        public static void Adicionar(Registro r)
+        public static void Adicionar(Registro r, bool novoCadastro)
         {
+            if(novoCadastro == true)
+            {
+                clientes.Add(r.cliente);
+            }
             Registros.Add(r);
         }
         
@@ -31,6 +36,10 @@ namespace Estacionamento
             Registro r = Registros.Where(x => x.cliente.CPF == c.CPF).FirstOrDefault();
             r.DataFim = data;
             return r.Valor;
+        }
+        public static Cliente LocalizarCliente(string cpf)
+        {
+            return clientes.Where(x => x.CPF == cpf).FirstOrDefault();
         }
     }
 }
