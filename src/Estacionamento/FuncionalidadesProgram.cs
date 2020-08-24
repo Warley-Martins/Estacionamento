@@ -1,6 +1,7 @@
 ﻿using Estacionamento.Pessoa;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -44,7 +45,7 @@ namespace Estacionamento
 
         private static Cliente CadastrarCliente()
         {
-            Console.Write("Digite o nome do cliente");
+            Console.Write("Digite o nome do cliente: ");
             var nome = Console.ReadLine();
             Console.Write("Digite o cpf: ");
             var cpf = Console.ReadLine();
@@ -54,7 +55,9 @@ namespace Estacionamento
             var modelo = Console.ReadLine();
             Console.Write("Digite a cor do veiculo: ");
             var cor = Console.ReadLine();
-            return new Cliente(new Veiculo(placa, modelo, cor), nome, cpf);
+            var cliente = new Cliente(new Veiculo(placa, modelo, cor), nome, cpf);
+            EscreverClienteArq(cliente);
+            return cliente;
         }
 
         private static void FinalizarRegistro()
@@ -83,7 +86,26 @@ namespace Estacionamento
                               $"\nOpção: ");
                 opcaoPagamento = int.Parse(Console.ReadLine());
             } while (opcaoPagamento != 1);
-            funcionario.FinalizarRegistro(cliente, data, true);
+            var r = funcionario.FinalizarRegistro(cliente, data, true);
+            EscreverRegistroArq(r);
+        }
+        private static void EscreverRegistroArq(Registro r)
+        {
+            string arq = "registros.txt";
+            using (var fluxoDeArquivo = new FileStream(arq, FileMode.OpenOrCreate))
+            using (var escritor = new StreamWriter(fluxoDeArquivo))
+            {
+                escritor.Write(r);
+            }
+        }
+        private static void EscreverClienteArq(Cliente novoCliente)
+        {
+            string arq = "clientes.txt";
+            using (FileStream fluxoDeArquivo = new FileStream(arq, FileMode.OpenOrCreate))
+            using (StreamWriter escritor = new StreamWriter(fluxoDeArquivo))
+            {
+                escritor.Write(novoCliente);
+            }
         }
     }
 }

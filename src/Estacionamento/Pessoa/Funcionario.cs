@@ -23,13 +23,13 @@ namespace Estacionamento.Pessoa
             return Estacionamento.GetValor(cliente, data);
         }
 
-        public void FinalizarRegistro(Cliente cliente, DateTime data, bool pagamento)
+        public Registro FinalizarRegistro(Cliente cliente, DateTime data, bool pagamento)
         {
             if (pagamento == true)
             {
-                Estacionamento.Remover(cliente);
+                return Estacionamento.Remover(cliente);
             }
-            return;
+            return null;
         }
 
         public Cliente LocalizarCliente(string cpf)

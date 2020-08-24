@@ -41,7 +41,7 @@ namespace Estacionamento
         }
         public override string ToString()
         {
-            return $"{Id},{cliente.CPF},{cliente.Nome},{DataInicio},{veiculo.Placa},{veiculo.Modelo},{veiculo.Cor}";
+            return $"{Id},{cliente.CPF},{cliente.Nome},{DataInicio},{DataFim},{veiculo.Placa},{veiculo.Modelo},{veiculo.Cor}";
         }
 
 

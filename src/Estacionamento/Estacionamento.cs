@@ -11,11 +11,6 @@ namespace Estacionamento
         private static List<Registro> Registros = new List<Registro>();
         private static List<Cliente> clientes = new List<Cliente>();
 
-        private static bool Logar()
-        {
-            return true;
-        }
-
         public static void Adicionar(Registro r, bool novoCadastro)
         {
             if(novoCadastro == true)
@@ -25,10 +20,11 @@ namespace Estacionamento
             Registros.Add(r);
         }
         
-        public static void Remover(Cliente c)
+        public static Registro Remover(Cliente c)
         {
             Registro r = Registros.Where(x => x.cliente.CPF == c.CPF).FirstOrDefault();
             Registros.Remove(r);
+            return r;
         }
 
         public static double GetValor(Cliente c, DateTime data)
