@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dll_Estacionamento</name>
+    </assembly>
+    <members>
+        <member name="T:Dll_Estacionamento.Estacionamento">
+            <summary>
+            Estacionamento 
+            </summary>
+        </member>
+        <member name="M:Dll_Estacionamento.Estacionamento.Adicionar(Dll_Estacionamento.Registro,System.Boolean)">
+            <summary>
+            Adiciona um novo registro
+            </summary>
+            <param name="r">Novo registro</param>
+            <param name="novoCadastro">Valor logico se novo cliente</param>
+            <exception cref="T:System.NullReferenceException">O parametro: <paramref name="r"/>, não possui referencia definida!</exception>
+        </member>
+        <member name="M:Dll_Estacionamento.Estacionamento.Remover(Dll_Estacionamento.Pessoa.Cliente)">
+            <summary>
+            Finaliza um registro
+            </summary>
+            <param name="c">Cliente que buscou o carro</param>
+            <returns>Retorna o registro finalizado</returns>
+            <exception cref="T:System.NullReferenceException">O parametro: <paramref name="c"/>, não possui referencia definida!</exception>
+        </member>
+        <member name="M:Dll_Estacionamento.Estacionamento.GetValor(Dll_Estacionamento.Pessoa.Cliente,System.DateTime)">
+            <summary>
+            Valor do estacionamento
+            </summary>
+            <param name="c">Cliente</param>
+            <param name="data">Data de retirada do veiculo</param>
+            <returns>Retorna o valor do estacionamento</returns>
+            <exception cref="T:System.NullReferenceException">O parametro: <paramref name="c"/>, não possui referencia definida!</exception>
+            <exception cref="T:System.NullReferenceException">O parametro: <paramref name="data"/>, não possui referencia definida!</exception>
+        </member>
+        <member name="M:Dll_Estacionamento.Estacionamento.LocalizarCliente(System.String)">
+            <summary>
+            Localiza um cliente no estacionamento
+            </summary>
+            <param name="cpf">Cpf do cliente</param>
+            <returns>Retorna o cliente</returns>
+            <exception cref="T:System.ArgumentException">O parametro: <paramref name="cpf"/>, não pode ser nulo ou vazio!</exception>
+        </member>
+        <member name="T:Dll_Estacionamento.Pessoa.Cliente">
+            <summary>
+            Cliente do estacionamento
+            </summary>
+        </member>
+        <member name="M:Dll_Estacionamento.Pessoa.Cliente.#ctor(Dll_Estacionamento.Veiculo,System.String,System.String)">
+            <summary>
+            Construtor de Cliente
+            </summary>
+            <param name="veiculo">Veiculo do cliente</param>
+            <param name="nome">Nome da pessoa</param>
+            <param name="cpf">CPF da pessoa</param>
+            <exception cref="T:System.NullReferenceException">O parametro: <paramref name="veiculo"/>, não esta definido!</exception>
+            <exception cref="T:System.ArgumentException">O parametro: <paramref name="nome"/>, não pode nulo ou vazio!</exception>
+            <exception cref="T:System.ArgumentException">O parametro: <paramref name="cpf"/>, não pode nulo ou vazio!</exception>
+        </member>
+        <member name="F:Dll_Estacionamento.Pessoa.Cliente.Veiculo">
+            <summary>
+            Veiculo do cliente
+            </summary>
+        </member>
+        <member name="M:Dll_Estacionamento.Pessoa.Cliente.Equals(System.Object)">
+            <summary>
+            Compara dois clientes
+            </summary>
+            <param name="obj">Cliente Comparado</param>
+            <returns>Valor logico da comparação</returns>
+        </member>
+        <member name="M:Dll_Estacionamento.Pessoa.Cliente.ToString">
+            <summary>
+            Informações do cliente
+            </summary>
+            <returns>Retorna uma string com informações do cliente</returns>
+        </member>
+        <member name="T:Dll_Estacionamento.Pessoa.Funcionario">
+            <summary>
+            Funcionario que realiza os registros
+            </summary>
+        </member>
+        <member name="M:Dll_Estacionamento.Pessoa.Funcionario.#ctor(System.String,System.String)">
+            <summary>
+            Construtor de Funcionario
+            </summary>
+            <param name="nome">Nome da pessoa</param>
+            <param name="cpf">CPF da pessoa</param>
+            <exception cref="T:System.ArgumentException">O parametro: <paramref name="cpf"/>, não pode nulo ou vazio!</exception>
+            <exception cref="T:System.ArgumentException">O parametro: <paramref name="nome"/>, não pode nulo ou vazio!</exception>
+        </member>
+        <member name="M:Dll_Estacionamento.Pessoa.Funcionario.CadastrarRegistro(Dll_Estacionamento.Pessoa.Cliente,System.Boolean)">
+             <summary>
+             Realiza o cadastro do cliente em um registro
+             </summary>
+             <param name="cliente">Cliente</param>
+             <param name="clienteNovo">Se o cliente ja possui cadastro</param>
+            <exception cref="T:System.NullReferenceException">No parametro: <paramref name="cliente"/> cliente não esta definido!</exception>
+        </member>
+        <member name="M:Dll_Estacionamento.Pessoa.Funcionario.MostrarPreco(Dll_Estacionamento.Pessoa.Cliente,System.DateTime)">
+             <summary>
+             Mostra o preço do estacionamento
+             </summary>
+             <param name="cliente">Cliente</param>
+             <param name="data">Data atual</param>
+            <exception cref="T:System.NullReferenceException">No parametro: <paramref name="cliente"/> cliente não esta definido!</exception>
+            <exception cref="T:System.NullReferenceException">No parametro: <paramref name="data"/> cliente não esta definido!</exception>
+            <returns>Retorna o valor</returns>
+        </member>
+        <member name="M:Dll_Estacionamento.Pessoa.Funcionario.FinalizarRegistro(Dll_Estacionamento.Pessoa.Cliente,System.DateTime,System.Boolean)">
+             <summary>
+             Finaliza o estacionamento para o sistema
+             </summary>
+             <param name="cliente">Cliente do estacionamento</param>
+             <param name="data">Data atual</param>
+             <param name="pagamento">Valor logico do pagamento</param>
+            <exception cref="T:System.NullReferenceException">No parametro: <paramref name="cliente"/> cliente não esta definido!</exception>
+            <exception cref="T:System.NullReferenceException">No parametro: <paramref name="data"/> cliente não esta definido!</exception>
+             <returns>Retorna o registro do cliente</returns>
+        </member>
+        <member name="M:Dll_Estacionamento.Pessoa.Funcionario.LocalizarCliente(System.String)">
+            <summary>
+            Procura um cliente no estacionamento
+            </summary>
+            <param name="cpf">Cpf do cliente</param>
+            <exception cref="T:System.ArgumentException">O parametro: <paramref name="cpf"/> não pode ser nulo ou vazio!</exception>
+            <returns>Retorna o cliente se encontrado</returns>
+        </member>
+        <member name="M:Dll_Estacionamento.Pessoa.Funcionario.Equals(System.Object)">
+            <summary>
+            Comparação entre dois funcionarios
+            </summary>
+            <param name="obj">Funcionario comparado</param>
+            <returns>Retorna o valor logico da comparação</returns>
+        </member>
+        <member name="M:Dll_Estacionamento.Pessoa.Funcionario.ToString">
+            <summary>
+            String com dados do funcionario
+            </summary>
+            <returns>Retorna uma string com dados do funcionario</returns>
+        </member>
+        <member name="M:Dll_Estacionamento.Pessoa.Pessoa.#ctor(System.String,System.String)">
+            <summary>
+            Construtor de Pessoa
+            </summary>
+            <param name="nome">Nome da pessoa</param>
+            <param name="cpf">CPF da pessoa</param>
+            <exception cref="T:System.ArgumentException">O parametro: <paramref name="cpf"/>, não pode nulo ou vazio!</exception>
+            <exception cref="T:System.ArgumentException">O parametro: <paramref name="nome"/>, não pode nulo ou vazio!</exception>
+        </member>
+        <member name="P:Dll_Estacionamento.Pessoa.Pessoa.Nome">
+            <summary>
+            Nome da pessoa
+            </summary>
+        </member>
+        <member name="P:Dll_Estacionamento.Pessoa.Pessoa.CPF">
+            <summary>
+            Cpf da pessoa
+            </summary>
+        </member>
+        <member name="T:Dll_Estacionamento.Registro">
+            <summary>
+            Registro de um cliente em um estacionamento
+            </summary>
+        </member>
+        <member name="M:Dll_Estacionamento.Registro.#ctor(Dll_Estacionamento.Pessoa.Cliente,System.DateTime)">
+            <summary>
+            Construtor do registro
+            </summary>
+            <param name="cliente">Cliente do estacionamento</param>
+            <param name="data">Data na qual o carro foi deixado</param>
+            <exception cref="T:System.NullReferenceException">O parametro: <paramref name="cliente"/>, não pode ser nulo ou vazio!</exception>
+            <exception cref="T:System.NullReferenceException">O parametro: <paramref name="data"/>, não pode ser nulo ou vazio!</exception>
+        </member>
+        <member name="T:Dll_Estacionamento.Veiculo">
+            <summary>
+            Veiculo no estacionamento
+            </summary>
+        </member>
+        <member name="M:Dll_Estacionamento.Veiculo.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Construtor do veiculo
+            </summary>
+            <param name="placa">Placa do veiculo</param>
+            <param name="modelo">Modelo do veiculo</param>
+            <param name="cor">Cor do veiculo</param>
+            <exception cref="T:System.ArgumentException">O parametro: <paramref name="placa"/>, não pode nulo ou vazio!</exception>
+            <exception cref="T:System.ArgumentException">O parametro: <paramref name="modelo"/>, não pode nulo ou vazio!</exception>
+            <exception cref="T:System.ArgumentException">O parametro: <paramref name="cor"/>, não pode nulo ou vazio!</exception>
+        </member>
+        <member name="P:Dll_Estacionamento.Veiculo.ID">
+            <summary>
+            ID do veiculo
+            </summary>
+        </member>
+        <member name="P:Dll_Estacionamento.Veiculo.Modelo">
+            <summary>
+            Modelo do veiculo
+            </summary>
+        </member>
+        <member name="P:Dll_Estacionamento.Veiculo.Placa">
+            <summary>
+            Placa do veiculo
+            </summary>
+        </member>
+        <member name="P:Dll_Estacionamento.Veiculo.Cor">
+            <summary>
+            Cor do veiculo
+            </summary>
+        </member>
+        <member name="M:Dll_Estacionamento.Veiculo.Equals(System.Object)">
+            <summary>
+            Realiza a comparação entre dois veiculos
+            </summary>
+            <param name="obj">Veiculo comparado</param>
+            <returns>Retorna o valor logico da expressao</returns>
+        </member>
+        <member name="M:Dll_Estacionamento.Veiculo.ToString">
+            <summary>
+            Informações do veiculo
+            </summary>
+            <returns>Retorna um string com informações do veiculo</returns>
+        </member>
+    </members>
+</doc>

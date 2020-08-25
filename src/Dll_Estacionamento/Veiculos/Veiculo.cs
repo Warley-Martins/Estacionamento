@@ -35,12 +35,23 @@ namespace Dll_Estacionamento
             this.Modelo = modelo;
             this.Cor = cor;
         }
+        /// <summary>
+        /// ID do veiculo
+        /// </summary>
         public int ID { get; internal set; }
+        /// <summary>
+        /// Modelo do veiculo
+        /// </summary>
         public string Modelo { get; set; }
-        public string Placa { get;}
+        /// <summary>
+        /// Placa do veiculo
+        /// </summary>
+        public string Placa { get; }
+        /// <summary>
+        /// Cor do veiculo
+        /// </summary>
         public string Cor { get; set; }
-        public Cliente Dono { get; set; }
-
+        
         /// <summary>
         /// Realiza a comparação entre dois veiculos
         /// </summary>

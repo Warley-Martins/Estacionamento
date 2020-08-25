@@ -9,11 +9,27 @@ namespace Dll_Estacionamento.Pessoa
     /// </summary>
     public class Cliente : Pessoa
     {
+        /// <summary>
+        /// Construtor de Cliente
+        /// </summary>
+        /// <param name="veiculo">Veiculo do cliente</param>
+        /// <param name="nome">Nome da pessoa</param>
+        /// <param name="cpf">CPF da pessoa</param>
+        /// <exception cref="NullReferenceException">O parametro: <paramref name="veiculo"/>, não esta definido!</exception>
+        /// <exception cref="ArgumentException">O parametro: <paramref name="nome"/>, não pode nulo ou vazio!</exception>
+        /// <exception cref="ArgumentException">O parametro: <paramref name="cpf"/>, não pode nulo ou vazio!</exception>
         public Cliente(Veiculo veiculo, string nome, string cpf)
             : base(nome, cpf)
         {
+            if(veiculo == null)
+            {
+                throw new NullReferenceException("Referencia nao definida para veiculo!");
+            }
             this.Veiculo = veiculo;
         }
+        /// <summary>
+        /// Veiculo do cliente
+        /// </summary>
         public Veiculo Veiculo;
         /// <summary>
         /// Compara dois clientes

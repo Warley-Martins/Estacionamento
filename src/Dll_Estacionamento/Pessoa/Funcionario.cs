@@ -9,6 +9,14 @@ namespace Dll_Estacionamento.Pessoa
     /// </summary>
     public class Funcionario : Pessoa
     {
+
+        /// <summary>
+        /// Construtor de Funcionario
+        /// </summary>
+        /// <param name="nome">Nome da pessoa</param>
+        /// <param name="cpf">CPF da pessoa</param>
+        /// <exception cref="ArgumentException">O parametro: <paramref name="cpf"/>, não pode nulo ou vazio!</exception>
+        /// <exception cref="ArgumentException">O parametro: <paramref name="nome"/>, não pode nulo ou vazio!</exception>
         public Funcionario(string nome, string cpf)
             : base(nome, cpf)
         {

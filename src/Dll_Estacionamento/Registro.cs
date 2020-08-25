@@ -33,12 +33,30 @@ namespace Dll_Estacionamento
             QuantidadeDeRegistros++;
             Id = QuantidadeDeRegistros;
         }
+        /// <summary>
+        /// Id do registro
+        /// </summary>
         public int Id { get; internal set; }
         private static int QuantidadeDeRegistros = 0;
+        /// <summary>
+        /// Cliente do estacionamento
+        /// </summary>
         public Cliente cliente;
+        /// <summary>
+        /// Veiculo do cliente do estacionamento
+        /// </summary>
         public Veiculo veiculo;
+        /// <summary>
+        /// Data de inicio do estacionamento
+        /// </summary>
         public readonly DateTime DataInicio;
+        /// <summary>
+        /// Data de termino do estacionamento
+        /// </summary>
         public DateTime DataFim = DateTime.Now;
+        /// <summary>
+        /// Valor do estacionamento
+        /// </summary>
         public double Valor
         {
             get
@@ -47,7 +65,11 @@ namespace Dll_Estacionamento
                 return 5 + (10 * diferenca.TotalHours);
             }
         }
-
+        /// <summary>
+        /// Compara dois Registros
+        /// </summary>
+        /// <param name="obj">Registro comparado</param>
+        /// <returns>Retorna o valor logico da compração</returns>
         public override bool Equals(object obj)
         {
             var registro = obj as Registro;
@@ -57,6 +79,10 @@ namespace Dll_Estacionamento
             }
             return this.Id == registro.Id;
         }
+        /// <summary>
+        /// Informações do registro
+        /// </summary>
+        /// <returns>Retorna uma string com informações do registro</returns>
         public override string ToString()
         {
             return $"{Id},{cliente.CPF},{cliente.Nome},{DataInicio},{DataFim},{veiculo.Placa},{veiculo.Modelo},{veiculo.Cor}";
