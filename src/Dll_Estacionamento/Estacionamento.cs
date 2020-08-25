@@ -1,10 +1,10 @@
-﻿using Estacionamento.Pessoa;
+﻿using Dll_Estacionamento.Pessoa;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Estacionamento
+namespace Dll_Estacionamento
 {
     public static class Estacionamento
     {

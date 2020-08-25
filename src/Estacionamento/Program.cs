@@ -8,7 +8,6 @@ namespace Estacionamento
         private static Funcionario funcionario;
         static void Main(string[] args)
         {
-            funcionario = new Funcionario("Pedro De Oliveira","82183284100");
             int indiceMenu;
             do
             {
@@ -32,6 +31,6 @@ namespace Estacionamento
             } while (indiceMenu != 0);
         }
 
-        
+
     }
 }

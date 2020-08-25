@@ -1,9 +1,9 @@
-﻿using Estacionamento.Pessoa;
+﻿using Dll_Estacionamento.Pessoa;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Estacionamento
+namespace Dll_Estacionamento
 {
     public class Registro
     {
@@ -15,8 +15,8 @@ namespace Estacionamento
             QuantidadeDeRegistros++;
             Id = QuantidadeDeRegistros;
         }
+        public int Id { get; internal set; }
         private static int QuantidadeDeRegistros = 0;
-        public int Id;
         public Cliente cliente;
         public Veiculo veiculo;
         public readonly DateTime DataInicio;
