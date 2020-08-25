@@ -1,4 +1,5 @@
-﻿using Estacionamento.Pessoa;
+﻿using Dll_Estacionamento;
+using Dll_Estacionamento.Pessoa;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -32,7 +33,7 @@ namespace Estacionamento
             {
                 case 1:
                     Console.Write("Digite seu cpf: ");
-                    var cpf = int.Parse(Console.ReadLine());
+                    var cpf = Console.ReadLine();
                     var cliente = funcionario.LocalizarCliente(cpf);
                     funcionario.CadastrarRegistro(cliente, false);
                     break;
@@ -48,7 +49,7 @@ namespace Estacionamento
             Console.Write("Digite o nome do cliente: ");
             var nome = Console.ReadLine();
             Console.Write("Digite o cpf: ");
-            var cpf = int.Parse(Console.ReadLine());
+            var cpf = Console.ReadLine();
             Console.Write("Digite a placa do veiculo: ");
             var placa = Console.ReadLine();
             Console.Write("Digite o modelo do veiculo: ");
@@ -74,7 +75,7 @@ namespace Estacionamento
             var mm = int.Parse(Console.ReadLine());
             var data = new DateTime(yyyy,MM,dd,hh,mm,0);
             Console.Write("Digite o cpf do cliente: ");
-            var cpf = int.Parse(Console.ReadLine());
+            var cpf = Console.ReadLine();
             var cliente = funcionario.LocalizarCliente(cpf);
             int opcaoPagamento;
             do
